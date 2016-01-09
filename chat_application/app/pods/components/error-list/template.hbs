@@ -1,0 +1,43 @@
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>Időpont</th>
+            <th>Státusz</th>
+            <th>Helyszín</th>
+            <th>Leírás</th>
+            <th>Funkciók</th>
+        </tr>   
+    </thead>
+    <tbody>
+
+        {{#each errors}}
+        <tr>
+            {{!--{{log this}}--}}
+            <td>{{date}}</td>
+            <td><span class="label label-{{statusClass}}">{{statusText}}</span></td>
+            <td>{{location}}</td>
+            <td><span class="badge">{{numberOfMessages}}</span> {{description}}</td>
+            <td>
+                {{link-to "Megtekint" "errors.view" this class="btn btn-default btn-sm"}}
+                {{link-to "Szerkeszt" "errors.edit" this class="btn btn-default btn-sm"}}
+                <button {{action "deleteError" this}} class="btn btn-default btn-sm">Töröl</button>
+            </td>
+        </tr>
+        {{/each}}
+
+        {{!--
+        <tr>
+            <td>35126</td>
+            <td><span class="label label-danger">Új</span></td>
+            <td>cloud9</td>
+            <td><span class="badge">0</span> lassú hétfőnként</td>
+        </tr>
+        <tr>
+            <td>35126</td>
+            <td><span class="label label-danger">Új</span></td>
+            <td>cloud9</td>
+            <td><span class="badge">0</span> lassú hétfőnként</td>
+        </tr>
+        --}}
+    </tbody>
+</table>
