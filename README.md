@@ -63,7 +63,7 @@ Felhasználó:
 (A kezdőlapon kívül minden funkciót modal ablakok valósítanak meg)
 
 Kezdőlap
-![Kezdőlap](client/docs/images/inxex.jpg)
+![Kezdőlap](client/docs/images/index.jpg)
 Regisztráció
 ![Regisztráció](client/docs/images/sign_up.jpg)
 Bejelentkezés
