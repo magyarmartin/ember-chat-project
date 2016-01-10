@@ -23,9 +23,9 @@ A project fő célja egy minimalista forum felület megvalósítása ami teljese
 **felhasználó**: a vendék körét bővíti ki kommentet létrehozásának, modosításának és törlésének lehetősőgővel
 
 ###Használati esetek
-![Használati esetek](docs/images/hasznalati_eset_diagram.jpg)
+![Használati esetek](client/docs/images/hasznalati_eset_diagram.jpg)
 ###Folyamatábra
-![Rendelés folyamata](docs/images/folyamat_diagram.jpg)
+![Rendelés folyamata](client/docs/images/folyamat_diagram.jpg)
 
 ##Tervezés
 
@@ -63,16 +63,16 @@ Felhasználó:
 (A kezdőlapon kívül minden funkciót modal ablakok valósítanak meg)
 
 Kezdőlap
-![Kezdőlap](docs/images/inxex.jpg)
+![Kezdőlap](client/docs/images/inxex.jpg)
 Regisztráció
-![Regisztráció](docs/images/sign_up.jpg)
+![Regisztráció](client/docs/images/sign_up.jpg)
 Bejelentkezés
-![Bejelentkezés](docs/images/log_in.jpg)
+![Bejelentkezés](client/docs/images/log_in.jpg)
 Komment módosítása
-![Komment módosítása](docs/images/edit_post.jpg)
+![Komment módosítása](client/docs/images/edit_post.jpg)
 
 ###Osztálymodell
-![model](docs/images/model.jpg)
+![model](client/docs/images/model.jpg)
 
 ##Implementáció
 ###Fejlesztői környezet
