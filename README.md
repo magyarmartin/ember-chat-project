@@ -1,53 +1,125 @@
-# Hibabejelento
+#Dokumentáció
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+##Követelmények
 
-## Prerequisites
+###Célkitűzés
+A project fő célja egy minimalista forum felület megvalósítása ami teljesen mobil barát.
 
-You will need the following things properly installed on your computer.
+###Funkcionális elvárások
+####Felhasználói szemszögből
+* Felhasználóként szeretném megnézni az oldalt és látni az eddig létrehozott kommenteket hogy megtudjam, érdemes-e regisztrálnom
+* Felhasználóként szeretnék tudni regisztrálni/ bejelentkezni
+* Felhasználóként szeretnék tudni a bejelentkezés után új kommentet felvinni
+* Felhasználóként szeretném módosítani illetve törölni a régebbi, saját kommentjeimet
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+###Nem funkcionális követelmények
+* Felhasználóbarát, mobile-friendli ergonomikus design
+* Gyors működés
+* Biztonságos működés
 
-## Installation
+###Szerepkörök
+**vendég**: meg tudja tekinteni a főoldalt, és a már mások által létrehozott kommenteket
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+**felhasználó**: a vendék körét bővíti ki kommentet létrehozásának, modosításának és törlésének lehetősőgővel
 
-## Running / Development
+###Használati esetek
+![Használati esetek](docs/images/hasznalati_eset_diagram.jpg)
+###Folyamatábra
+![Rendelés folyamata](docs/images/folyamat_diagram.jpg)
 
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+##Tervezés
 
-### Code Generators
+###Architectura terv
+####Oldaltérkép
+Publikus:
 
-Make use of the many generators for code, try `ember help generate` for more details
+- index
 
-### Running Tests
+Felhasználó:
 
-* `ember test`
-* `ember test --server`
+- regisztrációs modal ablak
+- bejelentkező modal ablak
+- komment módosítása modal ablak
 
-### Building
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+####Végpontok
+#####Front-end végpontok
 
-### Deploying
+* GET  /index
 
-Specify what it takes to deploy your app.
+#####Back-end (REST-API) végpontok
 
-## Further Reading / Useful Links
+* GET /users
+* GET /user/:id
+* POST /users
+* GET /posts
+* GET /post/:id
+* POST /posts
+* PUT /post/:id
+* DELETE /post/:id
 
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+###Felhasználóifelület-modell
+####Oldalvázlatok
+(A kezdőlapon kívül minden funkciót modal ablakok valósítanak meg)
 
+Kezdőlap
+![Kezdőlap](docs/images/inxex.jpg)
+Regisztráció
+![Regisztráció](docs/images/sign_up.jpg)
+Bejelentkezés
+![Bejelentkezés](docs/images/log_in.jpg)
+Komment módosítása
+![Komment módosítása](docs/images/edit_post.jpg)
+
+###Osztálymodell
+![model](docs/images/model.jpg)
+
+##Implementáció
+###Fejlesztői környezet
+Az alkalmazást a cloud9 fejlesztői környezet segítségével fejlesztettem
+###Könyvtárstruktúra
+A teljes könyvtárstruktúrát feleslegesnek tartom felvázolni, az Ember.js rengeteg mappát és file-t hoz létre saját aminek működését most nem tárgyalom
+- **docs** ide kerülnek a dokumentumok
+  - **images** ide kerülnek a dokumentumokhoz tartozó képek
+- **app**
+  - **pods**
+    - **application**
+      - **controller.js**
+      - **adapter.js**
+    - **index**
+     - **template.hbs**
+     - **controller.js**
+     - **route.js**
+    - **user**
+      - **model.js**
+    - **post**
+      - **model.js**
+  - **style**
+    - **app.css**
+
+A REST API NeDB-t használ az adatok tárolására ami egy lightweight fájl alapú adatbázis
+
+##Tesztek
+###Unit tesztek
+Mivel a Back-end szinte kizárólag a fortune.js-t haszálja ami már tesztelve van így nem láttam értelmét tesztek írásának
+
+##Felhasználói dokumentáció
+
+###Telepítés
+####Dependenciák
+- git
+- npm
+- nodejs
+- bower
+- ember-cli
+
+####Telepítés
+Először a git segítségével egy másolatot kell készíteni az kliensrő és a szerverről róla helyi PC-n. Ez a következő parancsal történi:
+```
+git clone https://github.com/martin4955/ember-chat-project.git
+```
+Ezután be kell lépni először a server majd a client mappába és kiadni az `npm istall` parancsot ami telepíti a szükséges dependenciáka.
+Majd a client mappában a `bower install` parancsal telepíteni kell a javascript és css dependenciákat is.
+Ha minden megvan akkor cmd-ből vagy terminálból be kell lépni a server mappába és lefuttani a `node server.js` parancsot, ezzel elindítjuk a REST szervert. Végül a client mappába el kell indítani `ember serve` parancsal a Front-end szerverünket is.
+###Használat
+A felhasználó megtekintheti az eddig létrehozott kommenteket, regisztráció ill. bejelentkezés után létrehozhat sajátokat, amiket késöbb módosíthat, vagy törölhet is.
