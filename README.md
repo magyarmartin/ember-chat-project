@@ -1,3 +1,7 @@
+This is a project work, made for one of my university's lecture. It is a simple forum, made with EmberJS (client) and NodeJS (server). The server and the client is communicate over REST API.
+
+Ez egy egyetemi beadandóra készített form szerű webes alkalmazás. A klins EmberJS-el míg a szerver NodeJs-el készült és a kettő REST API segítségével kommunikál
+
 #Dokumentáció
 
 ##Követelmények
